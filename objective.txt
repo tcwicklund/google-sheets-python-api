@@ -1,0 +1,16 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lecture objective:
+
+- problem statement: append should be able to auto-increment the 'id' column, if the client toggles the auto_increment_id query parameter
+
+- one possible solution: introduce a new method in the GoogleSheetsService class that appends records to a worksheet and auto-increments the 'id' column
+
+- the method should first read the existing data from the worksheet to find the maximum 'id' value, if it exists and is an integer
+
+- then, it should add incrementing 'id' values to the records to be appended, and delegate the actual appending to the existing append_records() method
+
+- if no 'id' column exists in the worksheet, the method should start the auto-incrementing 'id' values from 1
+
+- in the route handler, add a new query parameter to toggle the auto-incrementing behavior; if the parameter is set to True, call the new method, otherwise call the existing append_records() method
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
